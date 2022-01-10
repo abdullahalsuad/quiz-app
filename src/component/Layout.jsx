@@ -3,13 +3,13 @@ import Nav from './Nav'
 import classes from '../styles/Layout.module.css'
 
 
-export default function Layout({ Children }) {
+export default function Layout({ children }) {
     return (
         <>
           <Nav />  
           <main className={classes.main}>
               <div className={classes.container}>
-                    {Children}
+                    {children} 
               </div>
           </main>
         </>
