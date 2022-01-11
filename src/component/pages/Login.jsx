@@ -4,6 +4,7 @@ import Button from "../Button";
 import Form from "../Form";
 import Illustration from "../IllustrationLog";
 import TextInput from "../TextInput";
+import { NavLink } from 'react-router-dom'
 
 export default function Login() {
     return (
@@ -20,7 +21,7 @@ export default function Login() {
                   <Button>Submit Now</Button>
 
                   <div className="info">
-                    Don't have an account? <a href="signup.html">Signup</a> instead.
+                    Don't have an account? <NavLink to='/signup' style={{color:"red"}}>Signup</NavLink>
                   </div>
 
                 </Form>
