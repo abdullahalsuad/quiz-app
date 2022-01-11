@@ -1,9 +1,10 @@
 import React from 'react'
+import classes from '../styles/Button.module.css'
 
-export default function Button() {
+export default function Button({text}) {
     return (
-        <div>
-            
-        </div>
+            <div className={classes.button}>
+                <span>{text}</span>
+            </div>
     )
 }
