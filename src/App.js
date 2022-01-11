@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route,Routes } from "react-router-dom";
 import Layout from "./component/Layout";
 import Home from "./component/pages/Home";
