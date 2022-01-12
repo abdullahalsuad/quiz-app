@@ -6,13 +6,15 @@ import Home from "./component/pages/Home";
 import Login from "./component/pages/Login";
 import Quiz from "./component/pages/Quiz";
 import Signup from "./component/pages/Signup";
-import Result from "./component/pages/Result"
+import Result from "./component/pages/Result";
+import {AuthProvider} from "./context/AutContext";
 
 import "./styles/App.css"
 import NotFound from "./component/pages/NotFound";
 
 function App() {
   return (
+        <AuthProvider>
         <Layout>
           <Routes>
               <Route path="/" element={<Home />} />
@@ -22,7 +24,8 @@ function App() {
               <Route path="/result" element={<Result />} /> 
               <Route path="*" element={ <NotFound/>} />   
           </Routes>
-      </Layout >
+        </Layout >
+        </AuthProvider> 
   );
 }
 
