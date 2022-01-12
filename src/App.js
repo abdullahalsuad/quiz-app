@@ -8,9 +8,10 @@ import Quiz from "./component/pages/Quiz";
 import Signup from "./component/pages/Signup";
 import Result from "./component/pages/Result";
 import {AuthProvider} from "./context/AutContext";
-
 import "./styles/App.css"
 import NotFound from "./component/pages/NotFound";
+import PrivateRoute from './component/PrivateRoute';
+import PublicRoute from './component/PublicRoute';
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
         <Layout>
           <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login"element={<Login />} />
-              <Route path="/quiz" element={<Quiz />} />
-              <Route path="/result" element={<Result />} /> 
+              <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
+              <Route path="/login"element={<PublicRoute><Login /></PublicRoute>} />
+              <Route path="/quiz" element={<PrivateRoute><Quiz /></PrivateRoute>} />
+              <Route path="/result" element={<PrivateRoute><Result /></PrivateRoute>} /> 
               <Route path="*" element={ <NotFound/>} />   
           </Routes>
         </Layout >
