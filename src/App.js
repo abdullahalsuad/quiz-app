@@ -7,7 +7,7 @@ import Login from "./component/pages/Login";
 import Quiz from "./component/pages/Quiz";
 import Signup from "./component/pages/Signup";
 import Result from "./component/pages/Result";
-import {AuthProvider} from "./context/AutContext";
+import {AuthProvider} from "./context/AuthContext";
 import "./styles/App.css"
 import NotFound from "./component/pages/NotFound";
 import PrivateRoute from './component/PrivateRoute';

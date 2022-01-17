@@ -3,7 +3,7 @@ import Button from "./Button";
 import Form from "./Form";
 import TextInput from "./TextInput";
 import { NavLink , useNavigate } from 'react-router-dom'
-import { useAuth } from "../context/AutContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginForm() {
 

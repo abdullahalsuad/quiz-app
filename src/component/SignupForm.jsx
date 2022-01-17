@@ -4,7 +4,7 @@ import TextInput from './TextInput'
 import Checkbox from './Checkbox'
 import Button from './Button'
 import { NavLink,useNavigate } from 'react-router-dom'
-import { useAuth } from "../context/AutContext";
+import { useAuth } from "../context/AuthContext";
 
 
 export default function SignupForm() {
