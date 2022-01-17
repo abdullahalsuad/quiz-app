@@ -23,7 +23,7 @@ export default function useVideoList(page) {
                 videosRef,
                 orderByKey(),
                 startAt("" + page),
-                limitToFirst(8)
+                limitToFirst(11)
             )
             try{
                 setError(false) 
@@ -46,9 +46,9 @@ export default function useVideoList(page) {
                 setError(true);
             }   
         }
-
-        fetchVideos()  
-
+        setTimeout(()=>{
+            fetchVideos()  
+        },1000)
    },[page])
 
    return {

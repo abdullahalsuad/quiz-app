@@ -7,6 +7,7 @@ import Video from './Video'
 
 export default function Videos() {
   const [page, setPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const {loading, error, videos, hasMore} = useVideoList(page)
 
     return (
@@ -15,7 +16,8 @@ export default function Videos() {
           <InfiniteScroll
             dataLength={videos.length}
             hasMore={hasMore}
-            next={() => setPage(page + 8)}
+            next={() => setPage(page + 11)}
+            loader="loading......"
           >
                     {videos.map((video) =>
                       video.noq > 0 ? (
@@ -34,13 +36,15 @@ export default function Videos() {
         )}
  
               {!loading && videos.length === 0 && <div>No data found!</div>}
-              {error && <div>There was an error!</div>}
+              {/* {error && <div>There was an error!</div>} */}
               {loading &&
-                  <div>
-                    <Spinner animation="grow" variant="danger" className="p-2"/>
-                    <Spinner animation="grow" variant="info" className="p-2"/>
-                    <Spinner animation="grow" variant="danger" className="p-2"/>
-                    <Spinner animation="grow" variant="info" className="p-2"/>
+                  <div className="loading">
+                    <Spinner animation="grow" variant="danger" className=" m-4"/>
+                    <Spinner animation="grow" variant="info" className="m-4"/>
+                    <Spinner animation="grow" variant="danger" className="m-4"/>
+                    <Spinner animation="grow" variant="info" className="m-4"/>
+                    <Spinner animation="grow" variant="danger" className="m-4"/>
+                    <Spinner animation="grow" variant="info" className="m-4"/>
                   </div>
               }
         </div>
