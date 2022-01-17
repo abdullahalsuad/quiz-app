@@ -8,10 +8,11 @@ import {
     ref,
     startAt,
   } from "firebase/database";
-export default function useVideoList() {
+export default function useVideoList(page) {
          const [loading, setLoading] = useState(true)
          const [error, setError] = useState(true)
          const [videos,setVideos] = useState([])
+         const [hasMore, setHasMore] = useState(true);
 
 
    useEffect(() =>{
@@ -20,7 +21,9 @@ export default function useVideoList() {
             const videosRef = ref(db,"videos");
             const videoQuery = query(
                 videosRef,
-                orderByKey()
+                orderByKey(),
+                startAt("" + page),
+                limitToFirst(8)
             )
             try{
                 setError(false) 
@@ -33,8 +36,8 @@ export default function useVideoList() {
                    setVideos((prevVideos) =>{
                     return [...prevVideos, ...Object.values(snapshot.val())]
                    })
-               }else{
-
+               }else{  
+                    setHasMore(false);
                }
                 
             } catch(err){
@@ -46,11 +49,12 @@ export default function useVideoList() {
 
         fetchVideos()  
 
-   },[])
+   },[page])
 
    return {
     loading,
     error,
     videos,
+    hasMore,
   };
 }
