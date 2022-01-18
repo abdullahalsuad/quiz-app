@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import classes from '../styles/ProgressBar.module.css'
 import Button from './Button'
 
-export default function ProgressBar() {
+export default function ProgressBar({ next, prev, submit, progress }) {
     return (
         <div className={classes.progressBar}>
         <div className={classes.backButton}>
