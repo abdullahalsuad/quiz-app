@@ -72,20 +72,19 @@ export default function Quiz() {
   // submit quiz
   async function submit() {
     const { uid } = currentUser;
-
     const db = getDatabase();
     const resultRef = ref(db, `result/${uid}`);
+  
 
     await set(resultRef, {
       [id]: qna,
     });
-
-    navigate.push({
-      pathname: `/result/${id}`,
+    navigate(`/result/${id}`, {
       state: {
-        qna,
-      },
-    });
+          qna
+      }
+  });
+
   }
 
   // calculate percentage of progress
@@ -101,6 +100,7 @@ export default function Quiz() {
           <h1>{qna[currentQuestion].title}</h1>
           <h4>Question can have multiple answers</h4>
           <Answers
+            input
             options={qna[currentQuestion].options}
             handleChange={handleAnswerChange}
           />
