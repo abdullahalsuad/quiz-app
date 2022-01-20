@@ -7,6 +7,7 @@ import useQuestions from '../../hooks/useQuestions'
 import Answers from '../Answers'
 import MiniPlayer from '../MiniPlayer'
 import ProgressBar from '../ProgressBar'
+import useVideoList from '../../hooks/useVideoList'
 
 const initialState = null;
 
@@ -38,6 +39,10 @@ export default function Quiz() {
   const [qna, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
   const navigate  = useNavigate();
+
+  const { videos} = useVideoList()
+
+
 
   useEffect(() => {
     dispatch({
@@ -110,7 +115,7 @@ export default function Quiz() {
             submit={submit}
             progress={percentage}
           />
-          <MiniPlayer id={id} title={qna[currentQuestion].title}/>
+          <MiniPlayer id={id} title={videos.title}/>
         </>
       )}
     </>
